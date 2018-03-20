@@ -129,6 +129,7 @@ int execCommands(char **args)
 
 int executor(char **args)
 {
+    //check if this is an aliased command and replace the alaised part with the original command.implement as an linked list
   if(execCommands(args)==1)
   {
     return 1;
