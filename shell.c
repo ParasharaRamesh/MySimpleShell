@@ -12,14 +12,7 @@
 #include "util.h"
 
 #define RECENTCOMMANDS 25
-
-//todo:
-/*
-1.finish alaising
-2.finish writing a simple code editor
-3.plan on redirection
-*/
-
+#define ALIASCOUNT  100
 
 typedef struct commandentry{
     char command[30];
@@ -29,9 +22,11 @@ typedef struct commandentry{
 typedef struct alias{
   char aliascommand[10];
   char originalcommand[10];
-  struct alias *next;
+  //struct alias *next;
 }alias;
 
+int aliasno=0;
+alias aliasHistory[ALIASCOUNT];
 commandentry recentcommands[RECENTCOMMANDS];
 
 int currentindex=0;
@@ -42,6 +37,30 @@ void init(void)
   {
       recentcommands[i].bit=0;
   }
+  for(int i=0;i<ALIASCOUNT;i++)
+  {
+    aliasHistory[i].aliascommand[0]="\0";
+    aliasHistory[i].originalcommand[0]="\0";
+  }
+}
+
+void logalias(char * original, char * alias)
+{
+  strcpy(aliasHistory[aliasno].aliascommand,alias);
+  strcpy(aliasHistory[aliasno].originalcommand,original);
+  aliasno++;
+}
+
+char * getOriginalCommand(char * alias)
+{
+  for(int i=0;i<ALIASCOUNT;i++)
+  {
+    if(strcmp(alias,aliasHistory[i].aliascommand)==0)
+    {
+      return aliasHistory[i].originalcommand;
+    }
+  }
+  return NULL;
 }
 
 int logCommand(char *command)
@@ -133,11 +152,21 @@ int execCommands(char **args)
     }
     return 0;
   }
+  else if(strcmp(args[0],"alias")==0)
+  {
+    logalias(args[1],args[2]);
+    return 1;
+  }
 }
 
 int executor(char **args)
 {
-    //check if this is an aliased command and replace the alaised part with the original command.implement as an linked list
+  //
+  char * original=getOriginalCommand(args[0]);
+  if(original!=NULL)
+  {
+    strcpy(args[0],original);//replace it
+  }
   if(execCommands(args)==1)
   {
     return 1;
