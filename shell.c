@@ -13,6 +13,14 @@
 
 #define RECENTCOMMANDS 25
 
+//todo:
+/*
+1.finish alaising
+2.finish writing a simple code editor
+3.plan on redirection
+*/
+
+
 typedef struct commandentry{
     char command[30];
     int bit; // Set to 1 if this entry is used
