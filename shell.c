@@ -159,6 +159,33 @@ int execCommands(char **args)
     }
     return 0;
   }
+
+  else if(strcmp(args[0],"sedit")==0)
+  {
+    pid_t pid, wpid;
+    int status;
+
+    pid = fork();
+    if (pid == 0) {
+      // Child process
+      if (execvp("./sedit", args) == -1) {
+        perror("couldnt start editor!");
+        return 1;
+      }
+      exit(EXIT_FAILURE);
+    } else if (pid < 0) {
+      // Error forking
+      perror("couldnt fork!");
+      return 1;
+    } else {
+      // Parent process
+      do {
+        wpid = waitpid(pid, &status, WUNTRACED);
+      } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+    }
+    return 0;
+  }
+
 }
 
 int executor(char **args)
@@ -169,7 +196,7 @@ int executor(char **args)
     memset(args[0],0,sizeof(args[0]));
     strcpy(args[0],original); //replace it
   }
-  if( strcmp(args[0] , "alias") == 0 || strcmp(args[0] , "log") == 0 || strcmp(args[0],"cd") == 0)
+  if( strcmp(args[0] , "alias") == 0 || strcmp(args[0] , "log") == 0 || strcmp(args[0] , "sedit") == 0 || strcmp(args[0],"cd") == 0)
   {
     return execCommands(args);
   }
