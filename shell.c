@@ -130,11 +130,18 @@ int execChild(char **args)
 
 int execCommands(char **args)
 {
-  if(strcmp(args[0],"log")==0)
+  if(strcmp(args[0],"alias")==0)
+  {
+    logalias(args[1],args[2]);
+    return 0;
+  }
+
+  else if(strcmp(args[0],"log")==0)
   {
     printRecentCommands();
     return 0;
   }
+
   else if(strcmp(args[0],"cd")==0)
   {
     if (args[1] == NULL)
@@ -152,28 +159,23 @@ int execCommands(char **args)
     }
     return 0;
   }
-  else if(strcmp(args[0],"alias")==0)
-  {
-    logalias(args[1],args[2]);
-    return 1;
-  }
 }
 
 int executor(char **args)
 {
-  //
-  char * original=getOriginalCommand(args[0]);
+  char * original = getOriginalCommand(args[0]);
   if(original!=NULL)
   {
-    strcpy(args[0],original);//replace it
+    memset(args[0],0,sizeof(args[0]));
+    strcpy(args[0],original); //replace it
   }
-  if(execCommands(args)==1)
+  if( strcmp(args[0] , "alias") == 0 || strcmp(args[0] , "log") == 0 || strcmp(args[0],"cd") == 0)
   {
-    return 1;
+    return execCommands(args);
   }
-  if(execChild(args)==1)
+  else
   {
-    return 1;
+    return execChild(args);
   }
   return 0;
 }
@@ -190,7 +192,7 @@ int main(void)
 
       if(strcmp(input,"quit")==0)
       {
-          break;
+          exit(0);
       }
 
       logCommand(input);
