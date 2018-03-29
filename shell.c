@@ -74,20 +74,20 @@ int parsePipe(char* str, char** strpiped)
         if (strpiped[i] == NULL)
             break;
     }
- 
+
     if (strpiped[1] == NULL)
         return 0; // returns zero if no pipe is found.
     else {
         return 1;
     }
 }
- 
+
 void execArgsPiped(char** parsed, char** parsedpipe)
 {
     // 0 is read end, 1 is write end
-    int pipefd[2]; 
+    int pipefd[2];
     pid_t p1, p2;
- 
+
     if (pipe(pipefd) < 0) {
         printf("\nPipe could not be initialized");
         return;
@@ -97,14 +97,14 @@ void execArgsPiped(char** parsed, char** parsedpipe)
         printf("\nCould not fork");
         return;
     }
- 
+
     if (p1 == 0) {
         // Child 1 executing..
         // It only needs to write at the write end
         close(pipefd[0]);
         dup2(pipefd[1], STDOUT_FILENO);
         close(pipefd[1]);
- 
+
         if (execvp(parsed[0], parsed) < 0) {
             printf("\nCould not execute command 1..");
             exit(0);
@@ -112,12 +112,12 @@ void execArgsPiped(char** parsed, char** parsedpipe)
     } else {
         // Parent executing
         p2 = fork();
- 
+
         if (p2 < 0) {
             printf("\nCould not fork");
             return;
         }
- 
+
         // Child 2 executing..
         // It only needs to read at the read end
         if (p2 == 0) {
@@ -139,17 +139,17 @@ void execArgsPiped(char** parsed, char** parsedpipe)
 void parseSpace(char* str, char** parsed)
 {
     int i;
- 
+
     for (i = 0; i < 100; i++) {
         parsed[i] = strsep(&str, " ");
- 
+
         if (parsed[i] == NULL)
             break;
         if (strlen(parsed[i]) == 0)
             i--;
     }
 }
- 
+
 void logalias(char * original, char * alias)
 {
   strcpy(aliasHistory[aliasno].aliascommand,alias);
@@ -172,17 +172,20 @@ char * getOriginalCommand(char * alias)
 void printRecentCommands()
 {
 
-    struct tm *tm;
+    struct tm *tm,*tm2;
     int i=0;
     int temp=currentLogIndex-1;
+    int temp2=temp;
+    FILE * history;
+    fclose(fopen("history.txt", "w"));
     while(i<RECENTCOMMANDS)
     {
         if(logHistory[temp].bit==1)
         {
             tm = localtime(&(logHistory[temp].timestamp));
             printf("%d. %s\t %04d-%02d-%02d %02d:%02d:%02d\t %d\n",i+1,logHistory[temp].command,tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday,tm->tm_hour, tm->tm_min, tm->tm_sec,logHistory[temp].processId);
-            FILE * history=fopen("history.txt","a");
-            fprintf(history,"%s\t %04d-%02d-%02d %02d:%02d:%02d\t %d\n",logHistory[temp].command,tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday,tm->tm_hour, tm->tm_min, tm->tm_sec,logHistory[temp].processId);
+            history=fopen("history.txt","a");
+            fprintf(history,"%d. %s\t %04d-%02d-%02d %02d:%02d:%02d\t %d\n",i+1,logHistory[temp].command,tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday,tm->tm_hour, tm->tm_min, tm->tm_sec,logHistory[temp].processId);
             fflush(history);
             fclose(history);
             printf("wrote into file!\n");
@@ -343,7 +346,7 @@ int main(void)
       }
       if(strcmp(input,"quit")==0)
       {
-          exit(0);
+          kill(0,SIGTERM);
       }
 
       char **tokens = split(input);
