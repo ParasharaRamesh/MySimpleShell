@@ -350,6 +350,7 @@ int main(void)
       }
 
       char **tokens = split(input);
+      tokens=executeWildCard(tokens);
       if(executor(tokens))
       {
           printf("cant execute command!\n");
