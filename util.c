@@ -1,6 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
+#include<dirent.h>
 #include "util.h"
 char ** split(char * input)
 {
@@ -13,6 +14,7 @@ char ** split(char * input)
 		i++;
 		token = strtok(NULL, " ");
 	}
+	result[i]=NULL;
 	return result;
 }
 
@@ -50,7 +52,43 @@ char ** executeWildCard(char ** tokens)
 		//i have given enough space for the tokens right after we split (about 50) so..
 		//you can shift everything just like that (or have to think of other dynamic approach)
 	*/
+	//could be wrong didnt run it yet
+	char ** ls =getAllItemsFromCurrDir();
+	char **result;
+	int i=0;
+	while(ls[i]!=NULL)
+	{
+		char * regex;
+		char ** matches;
+		if(isWildCard(ls[i]))
+		{
+			regex =ls[i];
+			matches=getAllMatches(regex,ls);
+			int matchescount=getCount(matches);
+			int lscount=getCount(ls);
+			//shift everything to the right and leave matches count amount of space and then put this there
+			for(int k=lscount-1+matchescount-1;k>=i;k--)
+			{
+				ls[k+matchescount]=ls[k];
+			}
+			for(int k=0;k<matchescount;k++)
+			{
+				ls[i+k]=matches[k];
+			}
+		}
+		i++;
+	}
+	return result;
+}
 
+int getCount(char ** ls)
+{
+	int i=0;
+	while(ls[i]!=NULL)
+	{
+		i++;
+	}
+	return i;
 }
 
 int wildcardcmp(char *pattern,char *text)//returns 1 if pattern matches 0 on failure
