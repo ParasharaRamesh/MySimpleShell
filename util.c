@@ -56,18 +56,18 @@ char ** executeWildCard(char ** tokens)
 	char ** ls =getAllItemsFromCurrDir();
 	char **result;
 	int i=0;
-	while(ls[i]!=NULL)
+	while(tokens[i]!=NULL)
 	{
 		char * regex;
 		char ** matches;
-		if(isWildCard(ls[i]))
+		if(isWildCard(tokens[i]))
 		{
-			regex =ls[i];
+			regex =tokens[i];
 			matches=getAllMatches(regex,ls);
 			int matchescount=getCount(matches);
-			int lscount=getCount(ls);
+			int tokcount=getCount(tokens);
 			//shift everything to the right and leave matches count amount of space and then put this there
-			for(int k=lscount-1+matchescount-1;k>=i;k--)
+			for(int k=tokcount-1+matchescount-1;k>=i;k--)
 			{
 				ls[k+matchescount]=ls[k];
 			}
@@ -194,15 +194,15 @@ char ** getAllMatches(char ** ls,char * regex)//uses the regex and gets all the 
 	char **result=(char **)malloc(sizeof(char *)*50);//have to free this too but not able to
 	while(ls[i]!=NULL)
 	{
-		if(strcmp(ls[i],"")!=0&&strcmp(ls[i],".")!=0&&strcmp(ls[i],"..")!=0)
-		{
+		//if(strcmp(ls[i],"")!=0&&strcmp(ls[i],".")!=0&&strcmp(ls[i],"..")!=0)
+		//{
 			if(wildcardcmp(regex,ls[i]))
 			{
 				//add to the list
 				result[j]=ls[i];
 				j++;
 			}
-		}
+		//}
 		i++;
 	}
 	result[j+1]=NULL;
