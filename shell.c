@@ -134,6 +134,7 @@ void execArgsPiped(char** parsed, char** parsedpipe)
             wait(NULL);
         }
     }
+    return;
 }
 
 void parseSpace(char* str, char** parsed)
@@ -245,7 +246,11 @@ int execCommands(char **args)
     addLogRecord(args[0],time(0),getpid());
     return 0;
   }
-
+  else if(strcmp(args[0],"sgown")==0)
+  {
+    sgown(args[1],args[2]);
+    return 0;
+  }
   else if(strcmp(args[0],"log")==0)
   {
     printRecentCommands();
@@ -316,7 +321,7 @@ int executor(char **args)
     memset(args[0],0,sizeof(args[0]));
     strcpy(args[0],original); //replace it
   }
-  if( strcmp(args[0] , "alias") == 0 || strcmp(args[0] , "log") == 0 || strcmp(args[0] , "sedit") == 0 || strcmp(args[0],"cd") == 0)
+  if( strcmp(args[0] , "sgown") == 0 || strcmp(args[0] , "alias") == 0 || strcmp(args[0] , "log") == 0 || strcmp(args[0] , "sedit") == 0 || strcmp(args[0],"cd") == 0)
   {
     return execCommands(args);
   }
@@ -340,17 +345,25 @@ int main(void)
       gets(input);
       char* strpiped[2];
       if(parsePipe(input,strpiped)){
+        printf("1\n");
       	parseSpace(strpiped[0],parsedArgs);
+          printf("1\n");
       	parseSpace(strpiped[1],parsedArgsPiped);
+          printf("1\n");
       	execArgsPiped(parsedArgs,parsedArgsPiped);
+          printf("1\n");
       }
       if(strcmp(input,"quit")==0)
       {
           kill(0,SIGTERM);
       }
-
       char **tokens = split(input);
-      tokens=executeWildCard(tokens);
+      if(isCommandHavingWildcard(tokens))
+      {
+          printf("special case when command has a wildcard!\n");
+          tokens=executeWildCard(tokens);
+          printf("finished\n");
+      }
       if(executor(tokens))
       {
           printf("cant execute command!\n");

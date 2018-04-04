@@ -34,6 +34,21 @@ int isWildCard(char * text)
 	return 0;
 }
 
+int isCommandHavingWildcard(char ** command)
+{
+	int i=0;
+	while(command[i]!=NULL)
+	{
+		if(isWildCard(command[i]))
+		{
+			return 1;
+		}
+		i++;
+	}
+	return 0;
+
+}
+
 char ** executeWildCard(char ** tokens)
 {
 	//to do
@@ -53,19 +68,29 @@ char ** executeWildCard(char ** tokens)
 		//you can shift everything just like that (or have to think of other dynamic approach)
 	*/
 	//could be wrong didnt run it yet
+	char * regex;
+	char ** matches;
 	char ** ls =getAllItemsFromCurrDir();
+	printf("priting the contents of ls\n");
+	printcontents(ls);
 	char **result;
 	int i=0;
 	while(tokens[i]!=NULL)
 	{
-		char * regex;
-		char ** matches;
+		printf("tokens[i]=%s.\n",tokens[i]);
+		regex=NULL;
+		matches=NULL;
 		if(isWildCard(tokens[i]))
 		{
+			printf("%s has a wildcard\n",tokens[i]);
 			regex =tokens[i];
+			printf("all the items matching the regex %s is..\n",regex);
 			matches=getAllMatches(regex,ls);
+			printf("matches are\n");
+			printcontents(matches);
 			int matchescount=getCount(matches);
 			int tokcount=getCount(tokens);
+			printf("matchescount=%d and tokcount=%d\n",matchescount,tokcount);
 			//shift everything to the right and leave matches count amount of space and then put this there
 			for(int k=tokcount-1+matchescount-1;k>=i;k--)
 			{
@@ -78,6 +103,8 @@ char ** executeWildCard(char ** tokens)
 		}
 		i++;
 	}
+	printf("final result is \n");
+	printcontents(result);
 	return result;
 }
 
@@ -170,10 +197,10 @@ char ** getAllItemsFromCurrDir()//gets all the items in the curr directory and s
 			while ((dir = readdir(d)) != NULL)
 			{
 		  		result[i]=dir->d_name;
-				i++;
-		}
-		result[i+1]=NULL;
-		closedir(d);
+					i++;
+			}
+			result[i+1]=NULL;
+			closedir(d);
     }
 	return result;
 }
@@ -190,6 +217,8 @@ void printcontents(char ** ls)//can use this utility function to print the conte
 
 char ** getAllMatches(char ** ls,char * regex)//uses the regex and gets all the matches only as a char **
 {
+	printf("inside getAllMatches and regex is -%s-\n",regex);
+	printcontents(ls);
 	int i=0,j=0;
 	char **result=(char **)malloc(sizeof(char *)*50);//have to free this too but not able to
 	while(ls[i]!=NULL)
@@ -202,9 +231,85 @@ char ** getAllMatches(char ** ls,char * regex)//uses the regex and gets all the 
 				result[j]=ls[i];
 				j++;
 			}
-		//}
+		//2265
 		i++;
 	}
 	result[j+1]=NULL;
+	printf("inside getAllMatches result is \n");
+	printcontents(result);
 	return result;
+}
+
+int getOccurenceCount(char * path,char * word)
+{
+	FILE *fptr;
+ /* Try to open file */
+    fptr = fopen(path, "r");
+	 /* Exit if file not opened successfully */
+    if (fptr == NULL)
+    {
+        //printf("\t\t\tUnable to open file.\n");
+        return -1;
+    }
+	int BUFFER_SIZE=2000;
+ 	char str[BUFFER_SIZE];
+    char *pos;
+
+    int index, count;
+
+    count = 0;
+
+    // Read line from file till end of file.
+    while ((fgets(str, BUFFER_SIZE, fptr)) != NULL)
+    {
+        index = 0;
+
+        // Find next occurrence of word in str
+        while ((pos = strstr(str + index, word)) != NULL)
+        {
+            // Index of word in str is
+            // Memory address of pos - memory
+            // address of str.
+            index = (pos - str) + 1;
+
+            count++;
+        }
+    }
+    return count;
+}
+
+void sgown(const char *name, char * searchstring)
+{
+    DIR *dir;
+    struct dirent *entry;
+
+    if (!(dir = opendir(name)))
+		{
+			//printf("failed!\n");
+      return;
+		}
+    while ((entry = readdir(dir)) != NULL)
+		{
+				char path[1024];
+        if (entry->d_type == DT_DIR)
+				{
+            if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+                continue;
+            snprintf(path, sizeof(path), "%s/%s", name, entry->d_name);
+            sgown(path,searchstring);
+        }
+		 		else
+				{
+					char fullpath[1024];
+					strcpy(fullpath,name);
+					strcat(fullpath,"/");
+					strcat(fullpath,entry->d_name);
+					int count=getOccurenceCount(fullpath,searchstring);
+					if(count!=0 && count!=-1)
+					{
+						printf("file: %s count: %d\n",fullpath,count);
+					}
+		  	}
+  	}
+    closedir(dir);
 }
