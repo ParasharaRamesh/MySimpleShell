@@ -130,8 +130,11 @@ void execArgsPiped(char** parsed, char** parsedpipe)
             }
         } else {
             // parent executing, waiting for two children
+            printf("before wait\n");
             wait(NULL);
-            wait(NULL);
+            printf("Child 1\n");
+            //wait(NULL);
+            printf("After all waits\n");
         }
     }
     return;
@@ -318,8 +321,7 @@ int executor(char **args)
   char * original = getOriginalCommand(args[0]);
   if(original!=NULL)
   {
-    memset(args[0],0,sizeof(args[0]));
-    strcpy(args[0],original); //replace it
+    args[0]=original; //replace it
   }
   if( strcmp(args[0] , "sgown") == 0 || strcmp(args[0] , "alias") == 0 || strcmp(args[0] , "log") == 0 || strcmp(args[0] , "sedit") == 0 || strcmp(args[0],"cd") == 0)
   {
@@ -345,13 +347,13 @@ int main(void)
       gets(input);
       char* strpiped[2];
       if(parsePipe(input,strpiped)){
-        printf("1\n");
+        //printf("1\n");
       	parseSpace(strpiped[0],parsedArgs);
-          printf("1\n");
+          //printf("1\n");
       	parseSpace(strpiped[1],parsedArgsPiped);
-          printf("1\n");
+          // printf("1\n");
       	execArgsPiped(parsedArgs,parsedArgsPiped);
-          printf("1\n");
+          // printf("1\n");
       }
       if(strcmp(input,"quit")==0)
       {
