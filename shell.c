@@ -122,16 +122,19 @@ void execArgsPiped(char** parsed, char** parsedpipe)
         // It only needs to read at the read end
         if (p2 == 0) {
             close(pipefd[1]);
-            dup2(pipefd[0], STDIN_FILENO);
+	    dup2(pipefd[0], STDIN_FILENO);
             close(pipefd[0]);
             if (execvp(parsedpipe[0], parsedpipe) < 0) {
                 printf("\nCould not execute command 2..");
                 exit(0);
             }
-        } else {
+        } 
+	else {
             // parent executing, waiting for two children
-            wait(NULL);
-            wait(NULL);
+            //waitpid(p2,NULL,NULL);
+            //waitpid(p1,NULL,NULL);
+	wait(NULL);
+	wait(NULL);
         }
     }
 }
@@ -188,7 +191,7 @@ void printRecentCommands()
             fprintf(history,"%d. %s\t %04d-%02d-%02d %02d:%02d:%02d\t %d\n",i+1,logHistory[temp].command,tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday,tm->tm_hour, tm->tm_min, tm->tm_sec,logHistory[temp].processId);
             fflush(history);
             fclose(history);
-            printf("wrote into file!\n");
+            //printf("wrote into file!\n");
             temp--;
             if(temp<0)
                 temp=24;
