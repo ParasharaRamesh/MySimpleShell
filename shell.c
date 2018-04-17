@@ -86,7 +86,7 @@ void execArgsPiped(char** parsed, char** parsedpipe)
 {
     // 0 is read end, 1 is write end
     int pipefd[2];
-    pid_t p1, p2;
+    pid_t p1, p2,wpid;
 
     if (pipe(pipefd) < 0) {
         printf("\nPipe could not be initialized");
@@ -131,14 +131,13 @@ void execArgsPiped(char** parsed, char** parsedpipe)
         } 
 	else {
             // parent executing, waiting for two children
-            //waitpid(p2,NULL,NULL);
-            //waitpid(p1,NULL,NULL);
+        //  waitpid(p1,NULL,WNOHANG);
+	//waitpid(p2,NULL,WNOHANG);
 	wait(NULL);
-	wait(NULL);
-        }
     }
 }
-
+//return;
+}
 void parseSpace(char* str, char** parsed)
 {
     int i;
@@ -216,6 +215,43 @@ int execChild(char **args)
   if (pid == 0)
   {
     // Child process
+  	int i=0;
+  	while(args[i]!=NULL)
+  	{
+  		if(strcmp(args[i],"<")==0)
+  		{
+  			int fd=open(args[i+1],O_RDONLY);
+  			if(fd<0)
+  			{
+  				printf("Input file does not exist\n");
+  				exit(0);
+  			}
+  			else
+  			{
+  				dup2(fd,STDIN_FILENO);
+  				args[i]=NULL;
+  				args[i+1]=NULL;
+  				i+=2;
+  			}
+  		}
+  		if(strcmp(args[i],">")==0)
+  		{
+  			int fd=open(args[i+1],O_WRONLY);
+  			if(fd<0)
+  			{
+  				printf("Output file does not exist\n");
+  				exit(0);
+  			}
+  			else
+  			{
+  				dup2(fd,STDOUT_FILENO);
+  				args[i]=NULL;
+  				args[i+1]=NULL;
+  				i+=2;
+  			}
+  		}
+  		i+=1;
+  	}
     if (execvp(args[0], args) == -1)
     {
       perror("exec error");
@@ -345,6 +381,8 @@ int main(void)
       	parseSpace(strpiped[0],parsedArgs);
       	parseSpace(strpiped[1],parsedArgsPiped);
       	execArgsPiped(parsedArgs,parsedArgsPiped);
+	sleep(1);	
+	continue;
       }
       if(strcmp(input,"quit")==0)
       {
