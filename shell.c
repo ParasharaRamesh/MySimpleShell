@@ -221,6 +221,8 @@ int execChild(char **args)
   		if(strcmp(args[i],"<")==0)
   		{
   			int fd=open(args[i+1],O_RDONLY);
+  			//printf("%d\n",fd);
+  			//printf("%d\n",fd);
   			if(fd<0)
   			{
   				printf("Input file does not exist\n");
@@ -232,6 +234,7 @@ int execChild(char **args)
   				args[i]=NULL;
   				args[i+1]=NULL;
   				i+=2;
+  				continue;
   			}
   		}
   		if(strcmp(args[i],">")==0)
@@ -248,6 +251,7 @@ int execChild(char **args)
   				args[i]=NULL;
   				args[i+1]=NULL;
   				i+=2;
+  				continue;
   			}
   		}
   		i+=1;
