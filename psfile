@@ -1,0 +1,253 @@
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 19:39 ?        00:00:02 /sbin/init splash
+root         2     0  0 19:39 ?        00:00:00 [kthreadd]
+root         4     2  0 19:39 ?        00:00:00 [kworker/0:0H]
+root         6     2  0 19:39 ?        00:00:00 [mm_percpu_wq]
+root         7     2  0 19:39 ?        00:00:00 [ksoftirqd/0]
+root         8     2  0 19:39 ?        00:00:01 [rcu_sched]
+root         9     2  0 19:39 ?        00:00:00 [rcu_bh]
+root        10     2  0 19:39 ?        00:00:00 [migration/0]
+root        11     2  0 19:39 ?        00:00:00 [watchdog/0]
+root        12     2  0 19:39 ?        00:00:00 [cpuhp/0]
+root        13     2  0 19:39 ?        00:00:00 [cpuhp/1]
+root        14     2  0 19:39 ?        00:00:00 [watchdog/1]
+root        15     2  0 19:39 ?        00:00:00 [migration/1]
+root        16     2  0 19:39 ?        00:00:00 [ksoftirqd/1]
+root        18     2  0 19:39 ?        00:00:00 [kworker/1:0H]
+root        19     2  0 19:39 ?        00:00:00 [cpuhp/2]
+root        20     2  0 19:39 ?        00:00:00 [watchdog/2]
+root        21     2  0 19:39 ?        00:00:00 [migration/2]
+root        22     2  0 19:39 ?        00:00:00 [ksoftirqd/2]
+root        24     2  0 19:39 ?        00:00:00 [kworker/2:0H]
+root        25     2  0 19:39 ?        00:00:00 [cpuhp/3]
+root        26     2  0 19:39 ?        00:00:00 [watchdog/3]
+root        27     2  0 19:39 ?        00:00:00 [migration/3]
+root        28     2  0 19:39 ?        00:00:00 [ksoftirqd/3]
+root        30     2  0 19:39 ?        00:00:00 [kworker/3:0H]
+root        31     2  0 19:39 ?        00:00:00 [kdevtmpfs]
+root        32     2  0 19:39 ?        00:00:00 [netns]
+root        35     2  0 19:39 ?        00:00:00 [khungtaskd]
+root        36     2  0 19:39 ?        00:00:00 [oom_reaper]
+root        37     2  0 19:39 ?        00:00:00 [writeback]
+root        38     2  0 19:39 ?        00:00:00 [kcompactd0]
+root        39     2  0 19:39 ?        00:00:00 [ksmd]
+root        40     2  0 19:39 ?        00:00:00 [khugepaged]
+root        41     2  0 19:39 ?        00:00:00 [crypto]
+root        42     2  0 19:39 ?        00:00:00 [kintegrityd]
+root        43     2  0 19:39 ?        00:00:00 [kblockd]
+root        46     2  0 19:39 ?        00:00:00 [ata_sff]
+root        47     2  0 19:39 ?        00:00:00 [md]
+root        49     2  0 19:39 ?        00:00:00 [edac-poller]
+root        50     2  0 19:39 ?        00:00:00 [devfreq_wq]
+root        51     2  0 19:39 ?        00:00:00 [watchdogd]
+root        55     2  0 19:39 ?        00:00:00 [kauditd]
+root        56     2  0 19:39 ?        00:00:00 [kswapd0]
+root        57     2  0 19:39 ?        00:00:00 [ecryptfs-kthrea]
+root        99     2  0 19:39 ?        00:00:00 [kthrotld]
+root       100     2  0 19:39 ?        00:00:00 [acpi_thermal_pm]
+root       101     2  0 19:39 ?        00:00:01 [kworker/u8:2]
+root       105     2  0 19:39 ?        00:00:00 [ipv6_addrconf]
+root       134     2  0 19:39 ?        00:00:00 [charger_manager]
+root       181     2  0 19:39 ?        00:00:00 [scsi_eh_0]
+root       182     2  0 19:39 ?        00:00:00 [scsi_tmf_0]
+root       183     2  0 19:39 ?        00:00:00 [scsi_eh_1]
+root       184     2  0 19:39 ?        00:00:00 [scsi_tmf_1]
+root       188     2  0 19:39 ?        00:00:00 [ttm_swap]
+root       189     2  0 19:39 ?        00:00:00 [i915/signal:0]
+root       190     2  0 19:39 ?        00:00:00 [i915/signal:1]
+root       191     2  0 19:39 ?        00:00:00 [i915/signal:2]
+root       192     2  0 19:39 ?        00:00:00 [i915/signal:4]
+root       198     2  0 19:39 ?        00:00:00 [kworker/3:1H]
+root       199     2  0 19:39 ?        00:00:00 [kworker/0:1H]
+root       200     2  0 19:39 ?        00:00:00 [kworker/2:1H]
+root       202     2  0 19:39 ?        00:00:00 [kworker/1:1H]
+root       224     2  0 19:39 ?        00:00:00 [jbd2/sda9-8]
+root       225     2  0 19:39 ?        00:00:00 [ext4-rsv-conver]
+root       255     1  0 19:39 ?        00:00:01 /lib/systemd/systemd-journald
+root       277     1  0 19:39 ?        00:00:00 /lib/systemd/systemd-udevd
+root       310     2  0 19:40 ?        00:00:00 [loop0]
+root       312     2  0 19:40 ?        00:00:00 [loop1]
+root       315     2  0 19:40 ?        00:00:00 [loop2]
+root       316     2  0 19:40 ?        00:00:00 [loop3]
+root       318     2  0 19:40 ?        00:00:00 [loop4]
+root       321     2  0 19:40 ?        00:00:00 [loop5]
+root       333     2  0 19:40 ?        00:00:00 [kworker/u9:0]
+root       334     2  0 19:40 ?        00:00:00 [kworker/u9:1]
+root       338     2  0 19:40 ?        00:00:03 [irq/51-DELL078B]
+root       348     2  0 19:40 ?        00:00:00 [cfg80211]
+root       349     2  0 19:40 ?        00:00:01 [irq/282-iwlwifi]
+root       367     2  0 19:40 ?        00:00:00 [irq/283-mei_me]
+root       425     2  0 19:40 ?        00:00:00 [kmemstick]
+root       426     2  0 19:40 ?        00:00:00 [rtsx_usb_ms_1]
+root       497     2  0 19:40 ?        00:00:00 [rmi4-poller]
+root       500     2  0 19:40 ?        00:00:01 [irq/285-i2c_hid]
+root       710     2  0 19:40 ?        00:00:00 [jbd2/sda11-8]
+root       711     2  0 19:40 ?        00:00:00 [ext4-rsv-conver]
+root       716     2  0 19:40 ?        00:00:00 [jbd2/sda10-8]
+root       717     2  0 19:40 ?        00:00:00 [ext4-rsv-conver]
+systemd+   757     1  0 19:40 ?        00:00:00 /lib/systemd/systemd-timesyncd
+root       916     1  0 19:40 ?        00:00:00 /usr/lib/bluetooth/bluetoothd
+root       921     1  0 19:40 ?        00:00:00 /lib/systemd/systemd-logind
+syslog     926     1  0 19:40 ?        00:00:00 /usr/sbin/rsyslogd -n
+root       931     1  0 19:40 ?        00:00:00 /usr/sbin/cron -f
+root       932     1  0 19:40 ?        00:00:00 /usr/sbin/ModemManager
+root       934     1  0 19:40 ?        00:00:00 /usr/lib/accountsservice/accounts-daemon
+root       966     1  0 19:40 ?        00:00:00 /usr/sbin/irqbalance --foreground
+root       970     1  0 19:40 ?        00:00:00 /usr/lib/udisks2/udisksd
+root       971     1  0 19:40 ?        00:00:00 /usr/sbin/cupsd -l
+root       974     1  0 19:40 ?        00:00:00 /usr/lib/snapd/snapd
+avahi      976     1  0 19:40 ?        00:00:00 avahi-daemon: running [dell-Inspiron-15-3567.local]
+root       977     1  0 19:40 ?        00:00:01 /usr/sbin/thermald --no-daemon --dbus-enable
+message+   978     1  0 19:40 ?        00:00:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+avahi     1003   976  0 19:40 ?        00:00:00 avahi-daemon: chroot helper
+root      1011     1  0 19:40 ?        00:00:00 /usr/sbin/cups-browsed
+root      1012     1  0 19:40 ?        00:00:01 /usr/sbin/NetworkManager --no-daemon
+root      1013     1  0 19:40 ?        00:00:01 /usr/sbin/acpid
+root      1024     1  0 19:40 ?        00:00:00 /usr/lib/policykit-1/polkitd --no-debug
+systemd+  1053     1  0 19:40 ?        00:00:00 /lib/systemd/systemd-resolved
+root      1064     1  0 19:40 ?        00:00:00 /usr/sbin/gdm3
+root      1073  1064  0 19:40 ?        00:00:00 gdm-session-worker [pam/gdm-launch-environment]
+gdm       1114     1  0 19:40 ?        00:00:00 /lib/systemd/systemd --user
+gdm       1115  1114  0 19:40 ?        00:00:00 (sd-pam)
+root      1118     1  0 19:40 ?        00:00:00 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+gdm       1121  1073  0 19:40 tty1     00:00:00 /usr/lib/gdm3/gdm-wayland-session gnome-session --autostart /usr/share/gdm/greeter/autostart
+gdm       1123  1114  0 19:40 ?        00:00:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation
+gdm       1125  1121  0 19:40 tty1     00:00:00 /usr/lib/gnome-session/gnome-session-binary --autostart /usr/share/gdm/greeter/autostart
+gdm       1137  1125  0 19:40 tty1     00:00:03 /usr/bin/gnome-shell
+root      1143     1  0 19:40 ?        00:00:00 /usr/lib/upower/upowerd
+gdm       1165  1137  0 19:40 tty1     00:00:00 /usr/bin/Xwayland :1024 -rootless -terminate -core -listen 4 -listen 5 -displayfd 6
+gdm       1173  1114  0 19:40 ?        00:00:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+gdm       1178  1173  0 19:40 ?        00:00:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+gdm       1180  1114  0 19:40 ?        00:00:00 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+gdm       1184  1114  0 19:40 ?        00:00:00 /usr/bin/pulseaudio --daemonize=no
+rtkit     1185     1  0 19:40 ?        00:00:00 /usr/lib/rtkit/rtkit-daemon
+whoopsie  1198     1  0 19:40 ?        00:00:00 /usr/bin/whoopsie -f
+kernoops  1202     1  0 19:40 ?        00:00:00 /usr/sbin/kerneloops
+gdm       1207  1137  0 19:40 tty1     00:00:00 ibus-daemon --xim --panel disable
+gdm       1210  1207  0 19:40 tty1     00:00:00 /usr/lib/ibus/ibus-dconf
+gdm       1212     1  0 19:40 tty1     00:00:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+root      1224     1  0 19:40 ?        00:00:00 /usr/lib/packagekit/packagekitd
+gdm       1225  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-wacom
+gdm       1226  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-xsettings
+gdm       1228  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-a11y-keyboard
+gdm       1229  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-a11y-settings
+gdm       1230  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-clipboard
+gdm       1233  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-color
+gdm       1234  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-datetime
+gdm       1235  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-housekeeping
+gdm       1238  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-keyboard
+gdm       1243  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-media-keys
+gdm       1244  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-mouse
+gdm       1245  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-power
+gdm       1248  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-print-notifications
+gdm       1249  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-rfkill
+gdm       1251  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-screensaver-proxy
+gdm       1254  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-sharing
+gdm       1256  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-smartcard
+gdm       1260  1125  0 19:40 tty1     00:00:00 /usr/lib/gnome-settings-daemon/gsd-sound
+gdm       1276  1207  0 19:40 tty1     00:00:00 /usr/lib/ibus/ibus-engine-simple
+colord    1329     1  0 19:40 ?        00:00:00 /usr/lib/colord/colord
+root      1345  1064  0 19:40 ?        00:00:00 gdm-session-worker [pam/gdm-password]
+dell      1349     1  0 19:40 ?        00:00:00 /lib/systemd/systemd --user
+dell      1350  1349  0 19:40 ?        00:00:00 (sd-pam)
+dell      1357     1  0 19:40 ?        00:00:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+dell      1361  1345  0 19:40 tty2     00:00:00 /usr/lib/gdm3/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu
+dell      1363  1349  0 19:40 ?        00:00:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation
+dell      1365  1361  0 19:40 tty2     00:00:00 /usr/lib/gnome-session/gnome-session-binary --session=ubuntu
+dell      1433  1365  6 19:40 tty2     00:02:53 /usr/bin/gnome-shell
+root      1440  1012  0 19:40 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/lib/NetworkManager/nm-dhcp-helper -pf /run/dhclient-wlp2s0.pid -lf /var/lib/NetworkManager/dhclient-8105918a-2855-4036-8a2e-32f7aab9d306-wlp2s0.lease -cf /var/lib/NetworkManager/dhclient-wlp2s0.conf wlp2s0
+dell      1446  1349  0 19:40 ?        00:00:00 /usr/lib/gvfs/gvfsd
+dell      1451  1349  0 19:40 ?        00:00:00 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+dell      1459  1433  0 19:40 tty2     00:00:22 /usr/bin/Xwayland :0 -rootless -terminate -core -listen 4 -listen 5 -displayfd 6
+dell      1467  1349  0 19:40 ?        00:00:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+dell      1472  1467  0 19:40 ?        00:00:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+dell      1474  1349  0 19:40 ?        00:00:00 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+dell      1480     1  0 19:40 ?        00:00:00 /usr/bin/pulseaudio --start --log-target=syslog
+root      1484     2  0 19:40 ?        00:00:00 [krfcommd]
+dell      1501  1349  0 19:40 ?        00:00:00 /usr/lib/gnome-shell/gnome-shell-calendar-server
+dell      1502  1433  0 19:40 tty2     00:00:15 ibus-daemon --xim --panel disable
+dell      1576  1502  0 19:40 tty2     00:00:00 /usr/lib/ibus/ibus-dconf
+dell      1578     1  0 19:40 tty2     00:00:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+dell      1589  1349  0 19:40 ?        00:00:00 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+dell      1593  1349  0 19:40 ?        00:00:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+dell      1598  1349  0 19:40 ?        00:00:00 /usr/lib/gvfs/gvfs-goa-volume-monitor
+dell      1602  1349  0 19:40 ?        00:00:00 /usr/lib/gnome-online-accounts/goa-daemon
+dell      1612  1349  0 19:40 ?        00:00:00 /usr/lib/evolution/evolution-source-registry
+dell      1627  1349  0 19:40 ?        00:00:00 /usr/lib/gnome-online-accounts/goa-identity-service
+dell      1632  1349  0 19:40 ?        00:00:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+dell      1636  1349  0 19:40 ?        00:00:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+dell      1642  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-mouse
+dell      1644  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-power
+dell      1646  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-print-notifications
+dell      1649  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-rfkill
+dell      1650  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-screensaver-proxy
+dell      1654  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-sharing
+dell      1657  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-smartcard
+dell      1661  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-wacom
+dell      1668  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-xsettings
+dell      1670  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-sound
+dell      1676  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-a11y-keyboard
+dell      1678  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-clipboard
+dell      1679  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-datetime
+dell      1680  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-color
+dell      1681  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-a11y-settings
+dell      1683  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-housekeeping
+dell      1685  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-keyboard
+dell      1691  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-media-keys
+dell      1707  1349  0 19:40 ?        00:00:00 /usr/lib/evolution/evolution-calendar-factory
+dell      1710     1  0 19:40 tty2     00:00:00 /usr/lib/gnome-settings-daemon/gsd-printer
+dell      1717  1502  0 19:40 tty2     00:00:03 /usr/lib/ibus/ibus-engine-simple
+dell      1724  1707  0 19:40 ?        00:00:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory contacts --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx1707x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/1707/2
+dell      1734  1349  0 19:40 ?        00:00:00 /usr/lib/dconf/dconf-service
+dell      1737  1349  0 19:40 ?        00:00:00 /usr/lib/evolution/evolution-addressbook-factory
+dell      1739  1707  0 19:40 ?        00:00:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory local --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx1707x3 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/1707/3
+dell      1755  1737  0 19:40 ?        00:00:00 /usr/lib/evolution/evolution-addressbook-factory-subprocess --factory local --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.AddressBookx1737x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/AddressBook/1737/2
+dell      1807  1365  0 19:40 tty2     00:00:00 /usr/lib/gnome-disk-utility/gsd-disk-utility-notify
+dell      1808  1365  0 19:40 tty2     00:00:01 nautilus-desktop
+dell      1812  1365  0 19:40 tty2     00:00:00 /usr/lib/x86_64-linux-gnu/indicator-messages/indicator-messages-service
+dell      1814  1365  0 19:40 tty2     00:00:00 /usr/lib/x86_64-linux-gnu/indicator-application/indicator-application-service
+dell      1815  1365  0 19:40 tty2     00:00:01 /usr/bin/gnome-software --gapplication-service
+dell      1819  1365  0 19:40 tty2     00:00:00 kerneloops-applet
+root      1850     1  0 19:40 ?        00:00:00 /usr/lib/fwupd/fwupd
+dell      1858  1349  0 19:40 ?        00:00:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.15 /org/gtk/gvfs/exec_spaw/0
+dell      1936  1365  0 19:41 tty2     00:00:01 zeitgeist-datahub
+dell      1946  1349  0 19:41 ?        00:00:00 /usr/bin/zeitgeist-daemon
+dell      1954  1349  0 19:41 ?        00:00:00 /usr/lib/zeitgeist/zeitgeist/zeitgeist-fts
+dell      1982  1365  0 19:41 tty2     00:00:00 update-notifier
+dell      2005  1365  0 19:42 tty2     00:00:00 /usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
+root      2025     2  0 19:45 ?        00:00:00 [kworker/0:2]
+dell      2516     1  1 19:52 tty2     00:00:20 /opt/google/chrome/chrome
+dell      2523  2516  0 19:52 tty2     00:00:00 cat
+dell      2524  2516  0 19:52 tty2     00:00:00 cat
+dell      2527  2516  0 19:52 tty2     00:00:00 /opt/google/chrome/chrome --type=zygote
+dell      2528  2527  0 19:52 tty2     00:00:00 /opt/google/chrome/nacl_helper
+dell      2531  2527  0 19:52 tty2     00:00:00 /opt/google/chrome/chrome --type=zygote
+dell      2595  2516  0 19:52 tty2     00:00:04 /opt/google/chrome/chrome --type=gpu-process --field-trial-handle=2069971444684262714,17719383518167826978,131072 --gpu-preferences=KAAAAAAAAAAAAQAAAQAAAAAAAAAAAGAAAQAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --gpu-vendor-id=0x8086 --gpu-device-id=0x5916 --gpu-driver-vendor --gpu-driver-version --gpu-driver-date --service-request-channel-token=DDD4B3F6B7CF957E72AE7C74E01AA4DE
+dell      2648  2531  0 19:52 tty2     00:00:08 /opt/google/chrome/chrome --type=renderer --field-trial-handle=2069971444684262714,17719383518167826978,131072 --service-pipe-token=555E2BC67060CF850C417616302DD169 --lang=en-GB --extension-process --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --num-raster-threads=2 --enable-main-frame-before-activation --enable-compositor-image-animations --service-request-channel-token=555E2BC67060CF850C417616302DD169 --renderer-client-id=3 --shared-files=v8_context_snapshot_data:100,v8_natives_data:101,v8_snapshot_data:102
+dell      2773  2531  0 19:53 tty2     00:00:12 /opt/google/chrome/chrome --type=renderer --field-trial-handle=2069971444684262714,17719383518167826978,131072 --service-pipe-token=7D214A0279191316904EB3A68FE5258D --lang=en-GB --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --num-raster-threads=2 --enable-main-frame-before-activation --enable-compositor-image-animations --service-request-channel-token=7D214A0279191316904EB3A68FE5258D --renderer-client-id=10 --shared-files=v8_context_snapshot_data:100,v8_natives_data:101,v8_snapshot_data:102
+dell      2798  1349  0 19:53 ?        00:00:08 /usr/bin/nautilus --gapplication-service
+root      2846     2  0 19:54 ?        00:00:00 [kworker/u8:3]
+dell      2886  1349  0 19:55 ?        00:00:00 /usr/lib/gvfs/gvfsd-metadata
+dell      2991  2531  0 19:58 tty2     00:00:00 /opt/google/chrome/chrome --type=utility --field-trial-handle=2069971444684262714,17719383518167826978,131072 --lang=en-GB --service-sandbox-type=utility --service-request-channel-token=7E36667F98F6422A1196453100BE6E7A --shared-files=v8_context_snapshot_data:100,v8_natives_data:101,v8_snapshot_data:102
+dell      3069  1349  0 20:01 ?        00:00:11 /usr/lib/gnome-terminal/gnome-terminal-server
+dell      3077  3069  0 20:01 pts/0    00:00:00 bash
+dell      3088  1349  2 20:01 ?        00:00:33 /opt/sublime_text/sublime_text shell.c
+dell      3099  3088  0 20:01 ?        00:00:01 /opt/sublime_text/plugin_host 3088
+root      3289     2  0 20:07 ?        00:00:00 [kworker/1:1]
+root      3290     2  0 20:07 ?        00:00:00 [kworker/2:3]
+root      3401     2  0 20:12 ?        00:00:00 [kworker/u8:0]
+root      3402     2  0 20:12 ?        00:00:00 [kworker/3:3]
+root      3585     2  0 20:16 ?        00:00:00 [kworker/0:0]
+dell      3669  1349  1 20:17 ?        00:00:06 gedit /home/dell/SimpleShell/psfile
+root      3677     2  0 20:17 ?        00:00:00 [kworker/3:1]
+root      3706     2  0 20:18 ?        00:00:00 [kworker/1:0]
+root      3734     2  0 20:19 ?        00:00:00 [kworker/2:1]
+root      3777     2  0 20:20 ?        00:00:00 [kworker/u8:1]
+root      3807     2  0 20:21 ?        00:00:00 [kworker/0:1]
+dell      3859  3069  0 20:22 pts/1    00:00:00 bash
+root      3869     2  0 20:22 ?        00:00:00 [kworker/3:0]
+root      3895     2  0 20:23 ?        00:00:00 [kworker/1:2]
+root      3911     2  0 20:25 ?        00:00:00 [kworker/2:0]
+dell      3922  3859  0 20:25 pts/1    00:00:00 ./shell
+dell      3927  3922  0 20:25 pts/1    00:00:00 sh -c ps -ef > psfile
+dell      3928  3927  0 20:25 pts/1    00:00:00 ps -ef

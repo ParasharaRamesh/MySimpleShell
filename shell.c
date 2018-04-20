@@ -392,7 +392,12 @@ int main(void)
       {
           kill(0,SIGTERM);
       }
-
+      if(strcmp(input,"ps -z")==0)
+      {
+      	system("ps -ef > psfile");
+		system("grep defunct psfile");
+		continue;
+      }
       char **tokens = split(input);
       tokens=executeWildCard(tokens);
       if(executor(tokens))
