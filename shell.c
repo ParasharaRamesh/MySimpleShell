@@ -11,6 +11,7 @@
 #include<sys/wait.h>
 #include "util.h"
 #include <time.h>
+#include<dirent.h>
 
 #define RECENTCOMMANDS 25
 #define ALIASCOUNT  100
@@ -398,6 +399,30 @@ int main(void)
 		system("grep defunct psfile");
 		continue;
       }
+      if(strcmp(input,"ls -z")==0)
+      {
+      	//printf("In ls -z");
+      	char cwd[30];
+      	if(getcwd(&cwd,sizeof(cwd))<0)
+      		printf("Directory error\n");
+      	else
+      	{
+      		DIR *directory=opendir(cwd);
+      		struct dirent *dir;
+      		dir=readdir(directory);
+      		struct stat statbuf;
+      		while(dir!=NULL)
+      		{
+      			stat(dir->d_name,&statbuf);
+      			if(statbuf.st_size==0 && S_ISREG(statbuf.st_mode))
+      			{
+      				printf("%s \n",dir->d_name);
+      			}
+      			dir=readdir(directory);
+      		} 
+      	}
+      	continue;
+      	}
       char **tokens = split(input);
       tokens=executeWildCard(tokens);
       if(executor(tokens))
