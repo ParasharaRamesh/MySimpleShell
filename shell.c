@@ -186,7 +186,7 @@ void printRecentCommands()
         if(logHistory[temp].bit==1)
         {
             tm = localtime(&(logHistory[temp].timestamp));
-            printf("%d. %s\t %04d-%02d-%02d %02d:%02d:%02d\t %d\n",i+1,logHistory[temp].command,tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday,tm->tm_hour, tm->tm_min, tm->tm_sec,logHistory[temp].processId);
+            printf("%d. %-12s\t %04d-%02d-%02d %02d:%02d:%02d\t %d\n",i+1,logHistory[temp].command,tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday,tm->tm_hour, tm->tm_min, tm->tm_sec,logHistory[temp].processId);
             history=fopen("history.txt","a");
             fprintf(history,"%d. %s\t %04d-%02d-%02d %02d:%02d:%02d\t %d\n",i+1,logHistory[temp].command,tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday,tm->tm_hour, tm->tm_min, tm->tm_sec,logHistory[temp].processId);
             fflush(history);
@@ -313,6 +313,11 @@ int execCommands(char **args)
         return 1;
       }
     }
+  }
+
+  else if(strcmp(args[0],"sgown") == 0)
+  {
+    sgown(args[1],args[2]);
     return 0;
   }
 
@@ -359,7 +364,7 @@ int executor(char **args)
   {
     args[0] = original;
   }
-  if( strcmp(args[0] , "alias") == 0 || strcmp(args[0] , "log") == 0 || strcmp(args[0] , "sedit") == 0 || strcmp(args[0],"cd") == 0)
+  if( strcmp(args[0] , "sgown") == 0 || strcmp(args[0] , "alias") == 0 || strcmp(args[0] , "log") == 0 || strcmp(args[0] , "sedit") == 0 || strcmp(args[0],"cd") == 0)
   {
     return execCommands(args);
   }
@@ -396,8 +401,8 @@ int main(void)
       if(strcmp(input,"ps -z")==0)
       {
       	system("ps -ef > psfile");
-		system("grep defunct psfile");
-		continue;
+		    system("grep defunct psfile");
+		    continue;
       }
       if(strcmp(input,"ls -z")==0)
       {

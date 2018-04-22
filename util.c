@@ -218,3 +218,90 @@ char ** getAllMatches(char ** ls,char * regex)//uses the regex and gets all the 
 	printcontents(result);
 	return result;
 }
+
+int isCommandHavingWildcard(char ** command)
+{
+ 	int i=0;
+ 	while(command[i]!=NULL)
+ 	{
+ 		if(isWildCard(command[i]))
+ 		{
+ 			return 1;
+ 		}
+ 		i++;
+ 	}
+ 	return 0;
+}
+
+int getOccurenceCount(char * path,char * word)
+ {
+ 	FILE *fptr;
+  /* Try to open file */
+     fptr = fopen(path, "r");
+ 	 /* Exit if file not opened successfully */
+     if (fptr == NULL)
+     {
+         //printf("\t\t\tUnable to open file.\n");
+         return -1;
+     }
+ 	int BUFFER_SIZE=2000;
+  	char str[BUFFER_SIZE];
+     char *pos;
+ 
+     int index, count;
+ 
+     count = 0;
+ 
+     // Read line from file till end of file.
+     while ((fgets(str, BUFFER_SIZE, fptr)) != NULL)
+     {
+         index = 0;
+ 
+         // Find next occurrence of word in str
+         while ((pos = strstr(str + index, word)) != NULL)
+         {
+             // Index of word in str is
+             // Memory address of pos - memory
+             // address of str.
+             index = (pos - str) + 1;
+ 
+             count++;
+         }
+     }
+     return count;
+ }
+ 
+ void sgown(const char *name, char * searchstring)
+ {
+     DIR *dir;
+     struct dirent *entry;
+     if (!(dir = opendir(name)))
+ 		{
+ 			//printf("failed!\n");
+       return;
+ 		}
+     while ((entry = readdir(dir)) != NULL)
+ 		{
+ 				char path[1024];
+         if (entry->d_type == DT_DIR)
+ 				{
+             if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+                 continue;
+             snprintf(path, sizeof(path), "%s/%s", name, entry->d_name);
+             sgown(path,searchstring);
+         }
+ 		 		else
+ 				{
+ 				char fullpath[1024];
+ 					strcpy(fullpath,name);
+ 					strcat(fullpath,"/");
+ 					strcat(fullpath,entry->d_name);
+ 					int count=getOccurenceCount(fullpath,searchstring);
+ 					if(count!=0 && count!=-1)
+ 					{
+ 					printf("file: %s count: %d\n",fullpath,count);
+ 					}
+ 		  	}
+   	}
+     closedir(dir);
+ }
