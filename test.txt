@@ -1,0 +1,4 @@
+dell x:1000:1000:Dell,,,:/home/dell:/bin/bash
+dnsmasq:x:123:65534:dnsmasq,,,:/var/lib/misc:/bin/false
+gdm:x:124:132:Gnome Display Manager:/var/lib/gdm3:/bin/false
+

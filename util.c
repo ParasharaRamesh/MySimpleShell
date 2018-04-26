@@ -215,7 +215,7 @@ char ** getAllMatches(char ** ls,char * regex)//uses the regex and gets all the 
 	}
 	//printf("all matches\n");
 	result[j]=NULL;
-	printcontents(result);
+	//printcontents(result);
 	return result;
 }
 
